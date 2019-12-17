@@ -1,0 +1,52 @@
+<% include ./partial/header %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">
+				Book An Appointment
+			</p>
+		</div>
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= doctor.image %>">
+				<div class="caption-full">
+					<h4 class="pull-right">
+						$69 per night
+					</h4>
+					<h4>
+						<a>
+							Dr <%= doctor.name %>
+						</a>
+					</h4>
+					<p>
+						<%= doctor.description %>
+					</p>
+				</div>
+			</div>
+			<h2 class="bold">
+				Appointment Section
+			</h2>
+			<div class="well">
+				<h4>
+					Patient Name
+				</h4>
+			<% doctor.appointment.forEach(function(appointment){ %>
+				<p>
+					<strong><%=appointment.patientname %></strong>	
+				</p>
+				<% if(currentUser && appointment.patientname==currentUser.username){ %>
+				   <a id="edit-button" class="btn btn-warning" href="/<%=appointment._id %>/edit">
+				   	Edit 
+				   </a>
+				<% } %>
+				<% }); %>
+				<p>
+					<a href="/hospitals/fortis/sexologist/<%=doctor._id%>/appointment/new" class="btn btn-success">
+						Book an appointment
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<% include ./partial/footer.ejs %>

@@ -1,0 +1,25 @@
+<% include ./partial/header %>
+<h4 class="bold">
+ <%= doc.name %>
+</h4>
+<div class="well">
+			<% doc.appointment.forEach(function(ap){ %>
+				<div class="panel-body">
+					<p>
+						<strong><%=ap.patientname %></strong>
+					</p>
+					<p>
+						<%=ap.problem %>
+					</p>
+					<p>
+						<%=ap.number %>
+					</p>
+				</div>
+				<p>
+					<a href="/<%=doc._id%>/<%=ap._id%>/delete" class="btn btn-success">
+						Delete appointment
+					</a>
+				</p>
+				<% }); %>
+			</div>
+<% include ./partial/footer %>
