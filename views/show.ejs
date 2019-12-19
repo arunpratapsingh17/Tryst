@@ -30,21 +30,25 @@
 				<h4>
 					Patient Name
 				</h4>
-			<% doctor.appointment.forEach(function(appointment){ %>
-				<p>
-					<strong><%=appointment.patientname %></strong>	
-				</p>
-				<% if(currentUser && appointment.patientname==currentUser.username){ %>
-				   <a id="edit-button" class="btn btn-warning" href="/<%=appointment._id %>/edit">
-				   	Edit 
-				   </a>
-				<% } %>
-				<% }); %>
-				<p>
+				<div>
+					<% doctor.appointment.forEach(function(appointment){ %>
+					<div>
+						<p>
+						<strong><%=appointment.patientname %></strong>	
+						</p>
+					</div>
+					<% if(currentUser && appointment.patientname==currentUser.username){ %>
+				 	  <a id="edit-button" class="btn btn-warning" href="/<%=appointment._id %>/edit">
+				  	 	Edit 
+				  	 </a>
+					<% } %>
+					<% }); %>
+				</div>
+				<div>
 					<a href="/hospitals/fortis/sexologist/<%=doctor._id%>/appointment/new" class="btn btn-success">
 						Book an appointment
 					</a>
-				</p>
+				</div>
 			</div>
 		</div>
 	</div>

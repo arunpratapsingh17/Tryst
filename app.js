@@ -336,7 +336,7 @@ app.get("/login/doct",function(req,res){
 	res.render("login_doc_barber");
 });
 app.post("/login/doct",function(req,res){
-	if(req.body.username=="Abhinav Ayush")
+	if(req.body.username=="S K Jain")
 				{
 					res.redirect("/doc");
 				}
